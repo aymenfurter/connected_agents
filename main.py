@@ -24,8 +24,6 @@ from azure.ai.projects.aio import AIProjectClient
 from azure.ai.agents.models import FilePurpose, FileSearchTool, ToolResources
 
 
-# --- Agent Instructions ---
-
 CRITIC_AGENT_INSTRUCTIONS = """
 Guide the recruiter agent in identifying the best candidates for the job posting.
 
@@ -122,6 +120,15 @@ async def delete_all_agents(project_client, console):
             return
 
         console.print(Panel.fit(f"[bold]Found {len(agents)} existing agents to delete...[/bold]", style="cyan"))
+        
+        # Add confirmation prompt
+        console.print("[yellow]Do you want to delete all existing agents? Press 'Y' to confirm or any other key to skip:[/yellow]")
+        user_input = input().strip().upper()
+        
+        if user_input != 'Y':
+            console.print("[yellow]Skipping agent deletion.[/yellow]")
+            return
+            
         for agent in agents:
             try:
                 await project_client.agents.delete_agent(agent.id)

@@ -119,8 +119,8 @@ def generate_experience(years_of_experience):
         experience.append(f"""
 {company} ({industry})
 {random.choice(['Senior', 'Lead', 'Principal', 'Staff'])} Engineer | {start_year} - {current_date if company == companies_used[-1][0] else start_year + duration}
-• {random.choice(achievements)}
-• {random.choice(achievements)}""")
+- {random.choice(achievements)}
+- {random.choice(achievements)}""")
         
         current_date = start_year
 
@@ -144,7 +144,7 @@ Databases: {', '.join(random.sample(DATABASES, 2))}"""
 
 def generate_certifications():
     """Generate a realistic set of certifications"""
-    return "\n• ".join(random.sample(CERTIFICATIONS, random.randint(2, 4)))
+    return "\n- ".join(random.sample(CERTIFICATIONS, random.randint(2, 4)))
 
 def create_job_posting(output_path="job_description.pdf"):
     """Create a Contoso-style job posting PDF"""
@@ -158,19 +158,19 @@ def create_job_posting(output_path="job_description.pdf"):
         overview="""We are seeking a Senior Cloud Solutions Engineer to join our Enterprise Cloud Division. 
         You will be instrumental in architecting and delivering next-generation cloud solutions that power Contoso's enterprise customers.""",
         responsibilities="""
-• Design and implement enterprise-grade cloud solutions
-• Lead technical architecture decisions for major client implementations
-• Drive innovation in our cloud service offerings
-• Mentor team members and promote best practices""",
+- Design and implement enterprise-grade cloud solutions
+- Lead technical architecture decisions for major client implementations
+- Drive innovation in our cloud service offerings
+- Mentor team members and promote best practices""",
         qualifications="""
-• 5+ years of experience in cloud architecture and development
-• Strong background in distributed systems and microservices
-• Experience with major cloud platforms (Azure/AWS/GCP)
-• Track record of delivering complex technical solutions""",
+- 5+ years of experience in cloud architecture and development
+- Strong background in distributed systems and microservices
+- Experience with major cloud platforms (Azure/AWS/GCP)
+- Track record of delivering complex technical solutions""",
         additional="""
-• Experience with agile methodologies
-• Strong communication and presentation skills
-• Background in enterprise software development"""
+- Experience with agile methodologies
+- Strong communication and presentation skills
+- Background in enterprise software development"""
     )
     
     pdf.multi_cell(0, 10, txt=job_content)
