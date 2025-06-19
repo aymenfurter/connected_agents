@@ -65,17 +65,18 @@ flowchart TD
     %% ─────────────────────────
     %% STYLING
     %% ─────────────────────────
-    classDef client fill:#fff4cc,stroke:#ff9800,stroke-width:1px;
-    classDef runtime fill:#e2f1ff,stroke:#1565c0,stroke-width:1px;
-    classDef agent fill:#dcedc8,stroke:#2e7d32,stroke-width:1px;
-    classDef tool fill:#f3e5f5,stroke:#6a1b9a,stroke-width:1px;
-    classDef vector fill:#e0f7fa,stroke:#00838f,stroke-width:1px;
+    classDef client stroke:#a65e00,stroke-width:1px;
+    classDef runtime stroke:#0a2f5a,stroke-width:1px;
+    classDef agent stroke:#14532d,stroke-width:1px;
+    classDef tool stroke:#3c0e5f,stroke-width:1px;
+    classDef vector stroke:#004d4d,stroke-width:1px;
 
     class User client;
     class RT,GC,RR runtime;
     class Recruiter,Critic,Screening,JobPosting agent;
     class ScrTool,JPTool,ResSearch,JDSearch tool;
     class ResVS,JDVS vector;
+
 ```
 
 ## Sample Output
