@@ -27,7 +27,7 @@ from azure.ai.agents.models import FilePurpose, FileSearchTool, ToolResources
 CRITIC_AGENT_INSTRUCTIONS = """
 Guide the recruiter agent in identifying the best candidates for the job posting.
 
-When the conversation is complete and a final list of candidates has been provided, respond with only the word "COMPLETED".
+As soon as you receive the list of candidates (at least 3 names), respond with only the word "COMPLETED".
 
 Never include "Persona XYZ Adopted" in your response. 
 
@@ -218,6 +218,7 @@ async def main():
             model=deployment_name,
             name="recruiter",
             instructions=RECRUITER_AGENT_INSTRUCTIONS,
+            temperature=0.1,
             tools=[screening_tool.definitions[0], workflow_tool.definitions[0]],
         )
 
@@ -225,6 +226,7 @@ async def main():
         critic_agent_def = await project_client.agents.create_agent(
             model=deployment_name,
             name="workflow",
+            temperature=0.1,
             instructions=CRITIC_AGENT_INSTRUCTIONS,
         )
 
