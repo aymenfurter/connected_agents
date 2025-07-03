@@ -5,3 +5,4 @@ pandas
 rich
 semantic-kernel[azure]>=0.9.0b2
 fpdf
+flask
